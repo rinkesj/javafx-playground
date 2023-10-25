@@ -16,9 +16,9 @@ public class FilteredTableColumnTest {
 		Row row = new Row();
 		row.status = Status.DONE;
 		
-		BiFunction<Row,String,Status> ref = Row::getColumnValue;
+		BiFunction<Row,String,Object> ref = Row::getColumnValue;
 		
-		FilteredTableColumn<Row, Status> column = new FilteredTableColumn<Row, Status>("status",Row::getColumnValue);
+		FilteredTableColumn<Row, Object> column = new FilteredTableColumn<Row, Object>("status",Row::getColumnValue);
 		FilteredTableColumn<Row, Status> column2 = new FilteredTableColumn<Row, Status>("status",Row::getStatus);
 		column.filterValue = Status.DONE;
 		System.out.println(ref.apply(row, "status"));
